@@ -1,2 +1,2 @@
 # DAW
-Atividades
+Atividades para Desenvolvimento de Aplicações Web
