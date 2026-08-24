@@ -1,13 +1,13 @@
-<?php 
+<?php
+    $msg="";
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $mat = $_POST['mat'];
     $cpf = $_POST['cpf'];
-    $msg = "";
 
-    echo "nome: " . $nome . " email: " . " mat: " . $mat . " cpf: " . $cpf;
+    echo "nome: " . $nome . " email: " . $email . " mat: " . $mat . " cpf: " . $cpf;
 
     if(!file_exists("alunos.txt"))
     {
@@ -21,6 +21,7 @@
     $linha = "$nome;$email;$mat;$cpf;\n";
     fwrite($arqAlun, $linha);
     $msg = "Deu certo!";
+    fclose($arqAlun);
 }
 ?>
 
@@ -42,5 +43,15 @@
     <input type="submit" value="Incluir novo aluno">
     </form>
     <p><?php echo $msg ?></p>
+
+
+    <p>Deseja excluir um aluno?</p>
+    <form action="excluirAluno.php" method="POST">
+        <label for="">Forneca a matricula</label><input type="number" name="mat">>
+        Confirme: <input type="submit" value="Excluir aluno">
+    </form>
+    <p><?php echo $msg ?></p>
+
+
 </body>
 </html>
