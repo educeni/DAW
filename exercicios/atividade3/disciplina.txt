@@ -1,3 +1,6 @@
-MAT
-DAW
-ESD
+nome;sigla;carga
+Interface Homem-Maq;1IHM;80
+Banco;3PBD;120
+Fundamento e Algoritmo da Computação;1FAC;120
+Desenvolvimento Web;3DAW;120
+Interface Homem-Maq;1IHM;80

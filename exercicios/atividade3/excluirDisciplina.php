@@ -2,12 +2,17 @@
     $msg = "";
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sigla = $_POST['sigla'];
+        $linha = "";
 
         $arq = fopen("disciplina.txt", "r") or die("Erro ao ler o arquivo");
         $arqTemp = fopen("temporario.txt", "w") or die("Erro ao criar o arquivo");
 
         while (($linha=fgets($arq))!== false) {
-            if(trim($linha)== $sigla)
+
+            $dados = explode(";", $linha);
+
+            // Dados aumenta 1 na indice a cada ;  como é nome;sigla;carga == dados[0]; dados[1]; dados[2]
+            if(trim($dados[1])== $sigla)
             {
                 $msg = "Disciplina excluída com sucesso. ";
             }

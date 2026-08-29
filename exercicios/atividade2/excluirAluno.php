@@ -11,7 +11,7 @@
         while (($linha = fgets($arq)) !== false) {
             $dados = explode(";", $linha);
             
-            // dados[2] é o terceiro elemento do array, contando a um a cada vez que aparece um ponto e virgula. 
+            // dados[2] é o terceiro elemento do array, contando um a cada vez que aparece um ponto e virgula. 
             if(isset($dados[2]) && trim($dados[2]) == $mat) {
                 $msg = "Aluno excluido com sucesso!";
             }
