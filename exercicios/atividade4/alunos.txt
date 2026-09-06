@@ -1,0 +1,3 @@
+1234;Eduardo;eduardo@gg.com
+432;Micaela;mica@auu.com
+777;Raffa;raffa@moreira.com
