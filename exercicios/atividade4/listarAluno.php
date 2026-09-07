@@ -20,12 +20,12 @@
                 "<td>" . $colunaDados[2] . "</td>"; 
 
             echo '<td> 
-                    <form action="alterarAluno.php" method="GET">Deseja alterar o aluno?
+                    <form action="alterarAluno.php" method="GET">
                     <label for="">Matricula do aluno</label><input type="text" value="' . $colunaDados[0] . '" name="mat" id="mat" readonly>
-                    <input type="submit" value="Confirmar"> <br><br></form>
-                    <form action="excluirAluno.php" method="GET">Deseja excluir o aluno? 
+                    <button type="submit">Alterar</button><br><br></form>
+                    <form action="excluirAluno.php" method="GET">
                     <label for="">Matricula do aluno</label><input type="text" value="' . $colunaDados[0] . '" name="mat" id="mat" readonly>
-                    <input type="submit" value="Confirmar">
+                    <button type="submit">Excluir</button>
                     </form><br><br>
                 </td>';
             echo '</tr>';    
@@ -35,6 +35,5 @@
             $msg = "Deu certo!";
         ?>
     </table>
-    
 </body>
 </html>
