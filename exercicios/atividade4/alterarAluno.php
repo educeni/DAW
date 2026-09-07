@@ -36,8 +36,9 @@
         }
         fclose($arq);
         fclose($arq2);
+        $msg = "Deu certo";
     }
-    $msg = "Deu certo";
+    
 ?>
 
 <!DOCTYPE html>
