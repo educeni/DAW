@@ -31,33 +31,33 @@
         $r = fopen("respostas.txt", "a") or die("Erro ao abrir arquivo de respostas. ");
 
         if($certa==1){
-            $linha =  "1;" . $idPergunta . ";" $alt . ";1\n";
+            $linha =  "1;" . $idPergunta . ";" . $alt . ";1\n";
         }else{
-            $linha = "1;" . $idPergunta . ";" $alt . ";0\n";
+            $linha = "1;" . $idPergunta . ";" . $alt . ";0\n";
         }
         fwrite($r, $linha);
 
         if($certa == 2){
-            $linha = "2;" . $idPergunta . ";" $alt2 . ";1\n";
+            $linha = "2;" . $idPergunta . ";" . $alt2 . ";1\n";
         }
         else{
-            $linha = "2;" . $idPergunta . ";" $alt2 . ";0\n";
+            $linha = "2;" . $idPergunta . ";" . $alt2 . ";0\n";
         }
         fwrite($r, $linha);
 
         if($certa == 3){
-            $linha = "3;" . $idPergunta . ";" $alt3 . ";1\n";
+            $linha = "3;" . $idPergunta . ";" . $alt3 . ";1\n";
         }
         else{
-            $linha = "3;" . $idPergunta . ";" $alt3 . ";0\n";
+            $linha = "3;" . $idPergunta . ";" . $alt3 . ";0\n";
         }
         fwrite($r, $linha);
 
         if($certa==4){
-            $linha = "4;" . $idPergunta . ";" $alt4 . ";1\n";
+            $linha = "4;" . $idPergunta . ";" . $alt4 . ";1\n";
         }
         else{
-            $linha = "4;" . $idPergunta . ";" $alt4 . ";0\n";
+            $linha = "4;" . $idPergunta . ";" . $alt4 . ";0\n";
         }
         fwrite($r, $linha);
         
