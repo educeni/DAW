@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Pergunta Discursiva</title>
+</head>
+<body>
+    <form action="criarPergunta.php" method="POST">
+        <label for="idPergunta">Forneca o codigo da pergunta</label>
+        <input type="number" id="idPergunta" name="idPergunta">
+        <br><br>
+        <label for="pergunta">Forneca a pergunta Discursiva</label>
+        <input type="text" id="pergunta" name="pergunta">
+        <br><br>
+        <br><br>
+        <label for="idResp">Forneca o id da Resposta</label>
+        <input type="number" id="idResp" name="idResp">
+        <br><br>
+        <label for="certa">Qual a resposta certa</label>
+        <input type="text" id="certa" name="certa">
+        <br><br>
+        <input type="submit" value="Confirmar">
+    </form>
+    <a href="criarPergunta.html">Deseja fazer uma questão de multipla escolha?</a>
+</body>
+</html>
