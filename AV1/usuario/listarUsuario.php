@@ -31,6 +31,6 @@
         ?>
     </table>
 
-    <a href="../../index.html">Voltar para tela inicial</a>
+    <a href="../index.html">Voltar para tela inicial</a>
 </body>
 </html>

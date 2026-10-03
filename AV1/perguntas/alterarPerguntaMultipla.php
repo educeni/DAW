@@ -74,6 +74,6 @@
 <body>
     <h2><?php echo $msg; ?></h2>
     <a href="criarPergunta.html">Retornar para criação de Perguntas</a>
-        <a href="../../index.html">Voltar para tela inicial</a>
+        <a href="../index.html">Voltar para tela inicial</a>
 </body>
 </html>

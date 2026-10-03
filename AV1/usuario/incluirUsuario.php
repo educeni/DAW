@@ -45,6 +45,6 @@
         <input type="submit" value="Incluir Usuario">
     </form>
     <?php echo $msg; ?>
-    <a href="../../index.html">Voltar para tela inicial</a>
+    <a href="../index.html">Voltar para tela inicial</a>
 </body>
 </html>

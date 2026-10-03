@@ -60,6 +60,6 @@
 <body>
     <h1><?php echo $msg; ?></h1>
     <a href="alterarPerguntaDisc.html">Voltar</a>
-        <a href="../../index.html">Voltar para tela inicial</a>
+        <a href="../index.html">Voltar para tela inicial</a>
 </body>
 </html>

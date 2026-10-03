@@ -82,6 +82,6 @@
 
     </form>
     <a href="alterarPergunta.html">Voltar para alterar Pergunta</a>
-        <a href="../../index.html">Voltar para tela inicial</a>
+        <a href="../index.html">Voltar para tela inicial</a>
 </body>
 </html>

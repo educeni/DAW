@@ -95,6 +95,6 @@
     </form>
     <p><?php echo $msg ?></p>
     <a href="listarPergunta.php">Voltar para listagem</a>
-        <a href="../../index.html">Voltar para tela inicial</a>
+        <a href="../index.html">Voltar para tela inicial</a>
 </body>
 </html>

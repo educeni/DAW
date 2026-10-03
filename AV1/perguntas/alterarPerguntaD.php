@@ -46,6 +46,6 @@
         <input type="submit" value="Confirmar alteração">
     </form>
     <a href="alterarPerguntaDisc.html">Deseja enviar o codigo novamente?</a>
-        <a href="../../index.html">Voltar para tela inicial</a>
+        <a href="../index.html">Voltar para tela inicial</a>
 </body>
 </html>

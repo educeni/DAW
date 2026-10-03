@@ -45,6 +45,6 @@
     <h1>Alterar Usuario</h1>
 
     <?php echo $msg ?>
-    <a href="../../index.html">Voltar para tela inicial</a>
+    <a href="../index.html">Voltar para tela inicial</a>
 </body>
 </html>
