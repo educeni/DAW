@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function CalculaMedia() {
+            let nome = document.getElementById('nome').value;
+            let mat = document.getElementById('mat').value;
+            let av1 = document.getElementById('av1').value;
+            let av2 = document.getElementById('av2').value;
+
+            console.log(nome);
+            console.log(mat);
+            console.log(av1);
+            console.log(av2);
+            
+            let msg = "Calcular a media entre: " + av1 + " e " + av2;
+            document.getElementById("msg").innerHTML = msg;
+
+            let xmlhttp = new XMLHttpRequest();
+            console.log(1);
+
+            xmlhttp.onreadystatechange = function() {
+                if((this.readyState == 4) && (this.status == 200)){
+                    console.log("Chegou a resposta OK: " + this.responseText);
+                    console.log("2");
+                    document.getElementById("resultado").innerHTML = this.responseText;
+                    document.getElementById("msg").innerHTML = this.responseText;
+                }
+                else {
+                    if(this.readyState < 4)
+                    {   
+                        console.log("3:" + this.readyState);
+                    } else {
+                        console.log("Requisicao falhou: " + this.status);
+                    }
+                
+                }
+            }
+            console.log("4");
+            xmlhttp.open("GET", "http://localhost/daw/calculadoraMediaJS/calculadoraMedia.php?nome=" + nome + "&mat=" + mat + "&av1=" + av1 + "&av2=" + av2);
+            xmlhttp.send() 
+            console.log("Form enviado");
+            console.log("5");
+            
+            document.getElementById("msg").innerHTML = this.responseText;
+        }
+    </script>
+
+
+    <form action="" method="GET" id="calculaMedia" name="calculaMedia">
+        <label for="nome">Forneca o seu nome</label>
+        <input type="text" id="nome" name="nome"> <br>
+
+        <label for="mat">Forneca a matricula</label>
+        <input type="number" id="mat" name="mat"> <br>
+
+        <label for="av1">Forneca a primeira nota</label>
+        <input type="number" id="av1" name="av1"> <br>
+
+        <label for="av2">Forneca a segunda nota</label>
+        <input type="number" id="av2" name="av2"> <br>
+
+        <input type="button" value="Confirmar" onclick="CalculaMedia()">
+    </form>
+    <p id="resultado"></p>
+    <p id="msg"></p>
+</body>
+</html>
