@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3DAW</title>
+</head>
+<body>
+    <script>
+        function Calculadora() {
+            let a = document.getElementById('a').value;
+            let b = document.getElementById('b').value;
+            let op = document.getElementById('op').value;
+
+            console.log(a);
+            console.log(b);
+            console.log(op);
+
+            let xmlhttp = new XMLHttpRequest();
+            console.log("1");
+            xmlhttp.onreadystatechange = function() {
+                if((this.readyState == 4) && (this.status == 200)){
+                    console.log("2")
+                    console.log("Chegou a resposta OK: " + this.responseText);
+
+                    let resposta = JSON.parse(this.responseText);
+                    document.getElementById("msg").innerHTML = "Você realizou a seguinte operação: <br>" + resposta.a + " " + resposta.op + " " + resposta.b;
+                    document.getElementById("result").innerHTML = "Resultado: " + resposta.resultado;
+
+                    console.log(resposta.a);
+                    console.log(resposta.b);
+                    console.log(resposta.op);
+                    console.log(resposta.resultado);
+                }
+                else {
+                    if(this.readyState < 4){
+                        console.log("3: " + this.readyState);
+                    }
+                    else{
+                        console.log("Requisição falhou " + this.status);
+                    }
+                }
+            }
+            console.log("4");
+            xmlhttp.open("GET", "http://localhost/DAW/calculadoraJS/calculadora.php?a=" + encodeURIComponent(a) + "&b=" + encodeURIComponent(b) + "&op=" + encodeURIComponent(op));
+            xmlhttp.send();
+            console.log("form enviado");
+            console.log("5");
+            
+        }
+
+    </script>
+
+    <form action="" method="GET" id="calculadora" name="calculadora">
+        <label for="">Forneca o primeiro valor : </label>
+        <input type="text" value="0" name="a" id="a"><br>
+
+        <label for="">Forneca o segundo valor : </label>
+        <input type="text" value="0" name="b" id="b"><br>
+
+        <label for="">Forneca o operador : </label>
+        <select name="op" id="op">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <br>
+
+        <input type="button" value="Confirmar" onclick="Calculadora()"><br>
+    </form>
+    <p id="msg"></p>
+    <p id="result"></p>
+</body>
+</html>
