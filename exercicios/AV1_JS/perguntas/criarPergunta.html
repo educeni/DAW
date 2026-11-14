@@ -1,12 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Pergunta</title>
 </head>
 <body>
-    <form action="criarPergunta.php" method="POST">
+    <script>
+        function criarPergunta() {
+            let idPergunta = document.getElementById("idPergunta").value;
+            let pergunta = document.getElementById("pergunta").value;
+            let alt = document.getElementById("alt").value;
+            let alt2 = document.getElementById("alt2").value;
+            let alt3 = document.getElementById("alt3").value;
+            let alt4 = document.getElementById("alt4").value;
+            let certa = document.getElementById("certa").value;
+
+            if (idPergunta === "" || pergunta === "" || alt === "" || alt2 === "" || alt3 === "" || alt4 === "" || certa === "") {
+                alert("Todos os campos são obrigatórios.");
+                return false;
+            }
+
+            let xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("msg").innerHTML = this.responseText;
+                }
+                else if (this.readyState == 4) {
+                    document.getElementById("msg").innerHTML = "Erro ao criar pergunta.";
+                }
+            };
+            console.log("Enviando dados para o servidor...");
+            xmlhttp.open("POST", "http://localhost/DAW/exercicios/AV1_JS/perguntas/criarPergunta.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send("idPergunta=" + encodeURIComponent(idPergunta) + "&pergunta=" + encodeURIComponent(pergunta) + 
+                         "&alt=" + encodeURIComponent(alt) + "&alt2=" + encodeURIComponent(alt2) + 
+                         "&alt3=" + encodeURIComponent(alt3) + "&alt4=" + encodeURIComponent(alt4) +
+                         "&certa=" + encodeURIComponent(certa));
+        }
+    </script>
+
+    <form action="" method="POST">
         <label for="idPergunta">Forneca o codigo da pergunta</label>
         <input type="number" id="idPergunta" name="idPergunta">
         <br><br>
@@ -25,11 +59,19 @@
         <label for="alt4">Alternativa 4</label>
         <input type="text" id="alt4" name="alt4">
         <br><br>
+
         <label for="certa">Qual a resposta certa</label>
-        <input type="number" id="certa" name="certa">
+        <select name="certa" id="certa">
+            <option value="1">Alternativa 1</option>
+            <option value="2">Alternativa 2</option>
+            <option value="3">Alternativa 3</option>
+            <option value="4">Alternativa 4</option>
+        </select>
+        
         <br><br>
-        <input type="submit" value="Confirmar">
+        <input type="button" value="Confirmar" onclick="criarPergunta()">
     </form>
+    <p id="msg"></p>
     <a href="criarPerguntaDiscursiva.html">Deseja fazer uma questão discursiva?</a>
         <a href="../index.html">Voltar para tela inicial</a>
 </body>

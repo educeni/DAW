@@ -1,5 +1,4 @@
 <?php 
-
     echo "<h1>Lista de Perguntas Multipla Escolha</h1>";
 
     $a = fopen("perguntas.txt", "r") or die("Erro ao abrir arquivo de perguntas. \n");

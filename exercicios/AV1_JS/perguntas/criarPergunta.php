@@ -64,19 +64,7 @@
         fclose($r);
 
         $msg = "Cadastro de pergunta deu certo";
+        echo $msg;
+        exit();
     }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pergunta criada</title>
-</head>
-<body>
-    <h1><?php echo $msg; ?></h1>
-    <a href="criarPergunta.html">Voltar para a criacao de perguntas</a>
-        <a href="../index.html">Voltar para tela inicial</a>
-</body>
-</html>

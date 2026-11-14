@@ -9,6 +9,11 @@
         $alt4 = $_POST['alt4'];
         $certa = $_POST['certa'];
 
+        if($certa < 1 || $certa > 4){
+            echo "Erro: Selecione uma alternativa válida!";
+            exit();
+        }
+
         $aPerguntas = fopen("perguntas.txt", "r") or die("ERRO ao abrir arquivo de perguntas. ");
         $aPerguntasTemp = fopen("perguntasTemp.txt", "w") or die("ERRO ao criar arquivo temp de perguntas. ");
 
@@ -61,19 +66,6 @@
         fclose($aRespostasTemp);
         rename("respostasTemp.txt", "respostas.txt");
         $msg = "Alteracao realizada  ebaa!!!!";
+        echo $msg;
     }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alterar Pergunta Multipla Escolha</title>
-</head>
-<body>
-    <h2><?php echo $msg; ?></h2>
-    <a href="criarPergunta.html">Retornar para criação de Perguntas</a>
-        <a href="../index.html">Voltar para tela inicial</a>
-</body>
-</html>

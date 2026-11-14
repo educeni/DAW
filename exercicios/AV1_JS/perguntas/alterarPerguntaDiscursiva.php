@@ -16,7 +16,7 @@
         $aRespostasTemp = fopen("respostasTemp.txt", "w") or die("ERRO ao criar arquivo temp de respostas. ");
 
         // Ajeitando txt perguntas
-        while(($linha = fgets($aPerguntas))!= false ){
+        while(($linha = fgets($aPerguntas))!== false ){
             $colunaDados = explode(";",$linha);
 
             if($colunaDados[0] == $idPergunta){
@@ -28,7 +28,6 @@
         }
         fclose($aPerguntas);
         fclose($aPerguntasTemp);
-        rename("perguntasTemp.txt", "perguntasDiscursivas.txt");
 
         // Ajeitando txt respostas
         while(($linha = fgets($aRespostas))!= false ){
@@ -43,23 +42,11 @@
         }
         fclose($aRespostas);
         fclose($aRespostasTemp);
+        rename("perguntasTemp.txt", "perguntasDiscursivas.txt");
         rename("respostasTemp.txt", "respostasDiscursivas.txt");
 
         $msg = "Alteração realizada com sucesso!!!";
+        echo $msg;
+        exit();
     }
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alteracao realizada</title>
-</head>
-<body>
-    <h1><?php echo $msg; ?></h1>
-    <a href="alterarPerguntaDisc.html">Voltar</a>
-        <a href="../index.html">Voltar para tela inicial</a>
-</body>
-</html>
