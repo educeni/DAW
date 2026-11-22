@@ -1,0 +1,55 @@
+
+<?php
+    $msg = "";
+    $idPergunta = "";
+    $pergunta = "";
+    $resposta = "";
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        require_once("../includes/conexao.php");
+
+        $idPergunta = $_POST['idPergunta'];
+        $pergunta = $_POST['pergunta'];
+        $resposta = $_POST['resposta'];
+
+        if (
+            !filter_var($idPergunta, FILTER_VALIDATE_INT) ||
+            $idPergunta <= 0 ||
+            empty(trim($pergunta)) ||
+            empty(trim($resposta))
+        ) {
+            echo "Erro: Preencha todos os campos corretamente.";
+            exit();
+        }
+
+        $con->begin_transaction();
+
+            $sql = "UPDATE perguntas_discursivas
+                    SET pergunta = ?
+                    WHERE id_pergunta = ?";
+
+            $stmt = $con->prepare($sql);
+            $stmt->bind_param("si", $pergunta, $idPergunta);
+            $stmt->execute();
+            $stmt->close();
+
+            // Atualizando a resposta
+            $sql = "UPDATE respostas_discursivas
+                    SET gabarito = ?
+                    WHERE id_pergunta = ?";
+
+            $stmt = $con->prepare($sql);
+            $stmt->bind_param("si", $resposta, $idPergunta);
+            $stmt->execute();
+            $stmt->close();
+
+            $con->commit();
+
+            $msg = "Alteração realizada com sucesso!!!";
+            echo $msg;
+
+        $con->close();
+        exit();
+    }
+?>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Pergunta Discursiva</title>
+</head>
+<body>
+    <script>
+        function criarPerguntaDiscursiva(){
+            let idPergunta = document.getElementById("idPergunta").value;
+            let pergunta = document.getElementById("pergunta").value;
+            let idResp = document.getElementById("idResp").value;
+            let certa = document.getElementById("certa").value;
+
+            let xmlhttp = new XMLHttpRequest();
+
+            if (idPergunta === "" || pergunta === "" || idResp === "" || certa === "") {
+                alert("Todos os campos são obrigatórios.");
+                return false;
+            }
+
+            xmlhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200) {
+                    document.getElementById("msg").innerHTML = this.responseText;
+                }
+                else if(this.readyState == 4){
+                    console.log("Requisição falhou. ");
+                }
+
+
+
+            }
+            console.log("Enviando dados para o servidor...");
+            xmlhttp.open("POST", "http://localhost/DAW/exercicios/AV1_JS/perguntas/criarPerguntaDiscursiva.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send("idPergunta=" + encodeURIComponent(idPergunta) + "&pergunta=" + encodeURIComponent(pergunta) + "&idResp=" + 
+                        encodeURIComponent(idResp) + "&certa=" + encodeURIComponent(certa));
+            
+        }
+    </script>
+
+    <form action="" method="POST">
+        <label for="idPergunta">Forneca o codigo da pergunta</label>
+        <input type="number" id="idPergunta" name="idPergunta">
+        <br><br>
+        <label for="pergunta">Forneca a pergunta Discursiva</label>
+        <input type="text" id="pergunta" name="pergunta">
+        <br><br>
+        <label for="idResp">Forneca o id da Resposta</label>
+        <input type="number" id="idResp" name="idResp">
+        <br><br>
+        <label for="certa">Qual a resposta certa</label>
+        <input type="text" id="certa" name="certa">
+        <br><br>
+        <input type="button" value="Confirmar" onclick="criarPerguntaDiscursiva()">
+    </form>
+    <p id="msg"></p>
+    <a href="criarPergunta.html">Deseja fazer uma questão de multipla escolha?</a>
+        <a href="../index.html">Voltar para tela inicial</a>
+</body>
+</html>
